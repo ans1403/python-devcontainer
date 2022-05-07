@@ -1,0 +1,55 @@
+{
+    "name": "Python",
+    "dockerComposeFile": "../docker-compose.yml",
+    "service": "python",
+    "workspaceFolder": "/usr/local/python-devcontainer",
+    "remoteEnv": {
+        "PYTHONPATH": "src/main"
+    },
+    "extensions": [
+        "mhutchie.git-graph",
+        "mikestead.dotenv",
+        "ms-python.python",
+        "njpwerner.autodocstring",
+        "ryanluker.vscode-coverage-gutters"
+    ],
+    "settings": {
+        "files.insertFinalNewline": true,
+        "files.trimTrailingWhitespace": true,
+        "python.analysis.extraPaths": [
+            "./src/main"
+        ],
+        "python.defaultInterpreterPath": "/usr/local/bin/python",
+        "python.formatting.blackArgs": [
+            "--line-length=120"
+        ],
+        "python.formatting.provider": "black",
+        "python.linting.flake8Args": [
+            "--max-line-length=120",
+            "--ignore=E203,W503,W504"
+        ],
+        "python.linting.flake8Enabled": true,
+        "python.testing.unittestArgs": [
+            "-v",
+            "-s",
+            "./src",
+            "-p",
+            "*_test.py"
+        ],
+        "python.testing.pytestEnabled": false,
+        "python.testing.unittestEnabled": true,
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "terminal.integrated.profiles.linux": {
+            "bash": {
+                "path": "/bin/bash"
+            }
+        },
+        "[python]": {
+            "editor.detectIndentation": true,
+            "editor.formatOnSave": true,
+            "editor.insertSpaces": true,
+            "editor.tabSize": 4
+        },
+    },
+    "postCreateCommand": "pip install -r ./requirements.txt"
+}
